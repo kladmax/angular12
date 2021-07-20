@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -11,11 +11,12 @@ export class ShowDepComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   DepartmentList:any=[];
+  @Input() dep:any;
  
 
   ModalTitle:string;  
   ActivateAddEditDepComp:boolean=false;
-  dep:any;
+  
 
   ngOnInit(): void {
     this.refreshDepList();
@@ -28,6 +29,13 @@ export class ShowDepComponent implements OnInit {
 
     }
     this.ModalTitle="Add Department";
+    this.ActivateAddEditDepComp=true;
+
+  }
+
+  editClick(item: any){
+    this.dep=item;
+    this.ModalTitle="Edit Department";
     this.ActivateAddEditDepComp=true;
 
   }
