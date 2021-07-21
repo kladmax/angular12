@@ -11,8 +11,7 @@ export class ShowDepComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   DepartmentList:any=[];
-  @Input() dep:any;
- 
+  @Input() dep:any; 
 
   ModalTitle:string;  
   ActivateAddEditDepComp:boolean=false;
@@ -38,6 +37,15 @@ export class ShowDepComponent implements OnInit {
     this.ModalTitle="Edit Department";
     this.ActivateAddEditDepComp=true;
 
+  }
+
+  deleteClick(item: any) {
+    if(confirm('Are you sure??')){
+      this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
   }
 
     closeClick() {
