@@ -11,7 +11,8 @@ export class ShowDepComponent implements OnInit {
   constructor(private service:SharedService) { }
 
   DepartmentList:any=[];
-  @Input() dep:any; 
+  // @Input() dep:any; 
+  dep:any;
 
   ModalTitle:string;  
   ActivateAddEditDepComp:boolean=false;
