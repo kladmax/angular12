@@ -36,6 +36,7 @@ export class ShowEmpComponent implements OnInit {
   }
 
   editClick(item: any){
+   // console.log(item);
     this.emp=item;
     this.ModalTitle="Edit Employee";
     this.ActivateAddEditEmpComp=true;
